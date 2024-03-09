@@ -109,11 +109,6 @@ let g:WhichKeyDesc_commands_files = "<leader>be RecentFiles"
 map <leader>be <action>(RecentFiles)
 
 " commands - navigation
-map c :action NextSplitter<CR>
-map r <action>(ScrollPane-scrollDown)
-map t <action>(ScrollPane-scrollUp)
-map <A-r> <action>(MethodDown)
-map <A-t> <action>(MethodUp)
 let g:WhichKeyDesc_commands_nextsplitter = "<leader>bc NextSplitter"
 let g:WhichKeyDesc_commands_ScrollDown = "<leader>br ScrollDown"
 let g:WhichKeyDesc_commands_ScrollUp = "<leader>bt ScrollUp"
@@ -124,6 +119,11 @@ map <leader>br <action>(ScrollPane-scrollDown)
 map <leader>bt <action>(ScrollPane-scrollUp)
 map <leader>nr <action>(MethodDown)
 map <leader>nt <action>(MethodUp)
+map c :action NextSplitter<CR>
+map r <action>(ScrollPane-scrollDown)
+map t <action>(ScrollPane-scrollUp)
+map <A-r> <action>(MethodDown)
+map <A-t> <action>(MethodUp)
 
 " commands stretch
 map <A-h> <action>(StretchSplitToLeft)
