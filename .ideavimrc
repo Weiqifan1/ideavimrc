@@ -1,0 +1,322 @@
+""
+" .ideavimrc - CMLykke Based on Matt Chapman
+" C:\Users\CMLyk\.ideavimrc
+" vim commands
+" 1: y - yank text 2: / 3: Ctrl+r 4: 0 5: ENTER 6: use n and N to search yanked text - search copied text
+" :actionlist - shows all commands that can be bound with map x <action>(COMMAND)
+
+" list of plugins
+" Acejump
+" Ideavim
+" Ideavim - easymotion
+" Which-key
+
+"" Base Settings
+"" ========================================================
+imapclear
+set scrolloff=10
+set linenumber
+set showmode
+set showcmd
+
+set smartcase
+set incsearch
+set hlsearch
+
+set visualbell
+
+" Use system clipboard
+set clipboard+=unnamed   
+
+"" Plugin Settings
+"" ========================================================
+
+set surround
+set highlightedyank
+set sneak
+set nerdtree
+
+" Easymotion settings
+set easymotion
+set notimeout
+
+" Which-key settings
+set which-key
+let g:WhichKey_FontSize = 16
+let g:WhichKey_CommandColor = "#41ead4"
+let g:WhichKey_PrefixColor = "#f335b2"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+let g:WhichKeyDesc_leader = "<leader> Leader key"
+
+
+"" Key mappings
+"" ========================================================
+
+" let mapleader = "\<Space>"
+nmap <space> <leader>
+inoremap jk <Esc>
+
+" Tab navigation
+nnoremap <A-n> :tabnext<CR>
+nnoremap <A-p> :tabprev<CR>
+
+" Pane navigation   " jump between windows
+nnoremap <A-h> <C-w>h
+nnoremap <A-l> <C-w>l
+nnoremap <A-k> <C-w>k
+nnoremap <A-j> <C-w>j
+
+" Jump between methods
+inoremap <A-]> <Action>(MethodUp)
+inoremap <A-[> <Action>(MethodDown)
+
+" Easy visual indentation
+vnoremap < <gv
+vnoremap > >gv
+
+
+" Popup navigation
+nnoremap <A-i> <Action>(PopupMenu-selectNext)
+nnoremap <A-u> <Action>(PopupMenu-selectPrev)
+
+
+" Source files
+nnoremap s :source ~/.ideavimrc<CR>
+nnoremap <C-s> :e ~/.ideavimrc
+nnoremap <A-s> :e ~/.ideavimActions
+let g:WhichKeyDesc_source = "<leader>s IdeaConfSource"
+let g:WhichKeyDesc_source_SaveIdeavimrc = "<leader>ss Save ideavimrc"
+let g:WhichKeyDesc_source_ideavimrc = "<leader>sc Read ideavimrc"
+let g:WhichKeyDesc_source_ideavimFunctions = "<leader>sa Read ideavimFunctions"
+map <leader>ss :source ~/.ideavimrc<CR>
+map <leader>sc :e ~/.ideavimrc
+map <leader>sa :e ~/.ideavimActions
+
+" commands
+let g:WhichKeyDesc_commands = "<leader>b commands"
+let g:WhichKeyDesc_Acommands = "<leader>n A_commands"
+" commands - easymotion
+map a <Plug>(easymotion-s)
+map o <Plug>(easymotion-s)
+let g:WhichKeyDesc_commands_easymotionOne = "<leader>ba easymotionOne"
+let g:WhichKeyDesc_commands_easymotionTwo = "<leader>bo easymotionTwo"
+map <leader>ba <Plug>(easymotion-s)
+map <leader>bo <Plug>(easymotion-s)
+
+" commands - files
+map e <action>(RecentFiles)
+let g:WhichKeyDesc_commands_files = "<leader>be RecentFiles"
+map <leader>be <action>(RecentFiles)
+
+" commands - navigation
+map c :action NextSplitter<CR>
+map r <action>(ScrollPane-scrollDown)
+map t <action>(ScrollPane-scrollUp)
+map <A-r> <action>(MethodDown)
+map <A-t> <action>(MethodUp)
+let g:WhichKeyDesc_commands_nextsplitter = "<leader>bc NextSplitter"
+let g:WhichKeyDesc_commands_ScrollDown = "<leader>br ScrollDown"
+let g:WhichKeyDesc_commands_ScrollUp = "<leader>bt ScrollUp"
+let g:WhichKeyDesc_Acommands_MethodDown = "<leader>nr MethodDown"
+let g:WhichKeyDesc_Acommands_MethodUp = "<leader>nt MethodUp"
+map <leader>bc :action NextSplitter<CR>
+map <leader>br <action>(ScrollPane-scrollDown)
+map <leader>bt <action>(ScrollPane-scrollUp)
+map <leader>nr <action>(MethodDown)
+map <leader>nt <action>(MethodUp)
+
+" commands stretch
+map <A-h> <action>(StretchSplitToLeft)
+map <A-j> <action>(StretchSplitToBottom)
+map <A-k> <action>(StretchSplitToTop)
+map <A-l> <action>(StretchSplitToRight)
+let g:WhichKeyDesc_Acommands_stretchLeft = "<leader>nh Stretch left"
+let g:WhichKeyDesc_Acommands_stretchDown = "<leader>nj Stretch down"
+let g:WhichKeyDesc_Acommands_stretchUp = "<leader>nk Stretch up"
+let g:WhichKeyDesc_Acommands_stretchRight = "<leader>nl Stretch right"
+map <leader>nh <action>(StretchSplitToLeft)
+map <leader>nj <action>(StretchSplitToBottom)
+map <leader>nk <action>(StretchSplitToTop)
+map <leader>nl <action>(StretchSplitToRight)
+
+" Font size
+let g:WhichKeyDesc_fontSizeDec = "<leader>- Decrease Font Size"
+let g:WhichKeyDesc_fontSizeInc = "<leader>= Increace Font Size"
+map <leader>- :action EditorDecreaseFontSizeGlobal<CR>
+map <leader>= :action EditorIncreaseFontSizeGlobal<CR>
+
+let g:WhichKeyDesc_action_MethodUp = "<leader>a] Method Up"
+let g:WhichKeyDesc_action_MethodDown = "<leader>a[ Method Down"
+map <leader>a] <action>(MethodUp)
+map <leader>a[ <action>(MethodDown)
+
+" Comment lines
+let g:WhichKeyDesc_comment = "<leader>c Comment line"
+map <leader>c <action>(CommentByLineComment)
+
+" Jump around with easymotion
+let g:WhichKeyDesc_easymotion = "<leader>j Jump with Easymotion"
+map <leader>j <Plug>(easymotion-s)
+
+" Open NERDTree (use q to exit)
+let g:WhichKeyDesc_leader = "<leader>x Open file explorer"
+map <leader>x :NERDTreeToggle<CR>
+
+" Folding
+let g:WhichKeyDesc_fold = "<leader>z Folding"
+let g:WhichKeyDesc_fold_all = "<leader>zc Fold all regions"
+let g:WhichKeyDesc_unfold_all = "<leader>zo Unfold all regions"
+map <leader>zc :action CollapseAllRegions<CR>
+map <leader>zo :action ExpandAllRegions<CR>
+
+" Window splits
+let g:WhichKeyDesc_window = "<leader>w Window splits"
+let g:WhichKeyDesc_window_split_vertically = "<leader>wv Split vertically"
+let g:WhichKeyDesc_window_split_horizontally = "<leader>wh Split horizontally"
+let g:WhichKeyDesc_window_split_unsplit = "<leader>wu Unsplit"
+let g:WhichKeyDesc_window_split_move_editor = "<leader>wm Move editor to opposite tab group"
+map <leader>wv <Action>(SplitVertically)
+map <leader>ws  <Action>(SplitHorizontall)
+map <leader>wu <Action>(Unsplit)
+map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+
+" Display options
+let g:WhichKeyDesc_display = "<leader>d Display options"
+let g:WhichKeyDesc_zen_mode = "<leader>dz Toggle Zen mode"
+let g:WhichKeyDesc_df_mode = "<leader>dd Toggle Distraction-Free mode"
+let g:WhichKeyDesc_fullscreen = "<leader>df Toggle full screen"
+let g:WhichKeyDesc_softwrap = "<leader>ds Toggle Soft-Wrap"
+map <leader>dd <action>(ToggleDistractionFreeMode)
+map <leader>dz <action>(ToggleZenMode)
+map <leader>df <action>(ToggleFullScreen)
+map <leader>ds <action>(EditorToggleUseSoftWraps)
+
+" Actions
+let g:WhichKeyDesc_action= "<leader>a Actions"
+let g:WhichKeyDesc_action_context_menu = "<leader>am Open context menu"
+let g:WhichKeyDesc_action_search = "<leader>as Open command modal"
+let g:WhichKeyDesc_action_PopupNext = "<leader>ai Popup Next"
+let g:WhichKeyDesc_action_PopupPrev = "<leader>au Popup Prev"
+let g:WhichKeyDesc_action_MethodUp = "<leader>a] Method Up"
+let g:WhichKeyDesc_action_MethodDown = "<leader>a[ Method Down"
+map <leader>am <action>(ShowIntentionActions)
+map <leader>as <action>(SearchEverywhere)
+map <leader>ai <action>(PopupMenu-selectNext)
+map <leader>au <action>(PopupMenu-selectPrev)
+map <leader>a] <action>(MethodUp)
+map <leader>a[ <action>(MethodDown)
+
+
+" File navigation
+let g:WhichKeyDesc_file_quickLook = "<leader><leader> Recent files"
+let g:WhichKeyDesc_easymotion_prefix = "<leader><leader>"
+let g:WhichKeyDesc_file_nav = "<leader>f File navigation"
+let g:WhichKeyDesc_file_nav_goto_file = "<leader>ff Go to file"
+let g:WhichKeyDesc_file_nav_goto_content = "<leader>fc Search for file content"
+let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>fr Show recent files"
+let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>fl Show recent locations"
+map <leader><leader> <Action>(RecentFiles)
+map <leader>ff <action>(GotoFile)
+map <leader>fr <action>(RecentFiles)
+map <leader>fc <action>(FindInPath)
+map <leader>fl <action>(RecentLocations)
+map <leader>fs <action>(NewScratchFile)
+
+" Close active tab
+let g:WhichKeyDesc_close_tab = "<leader>q Close active tab"
+map <leader>q <action>(CloseContent)
+
+" Refactoring
+let g:WhichKeyDesc_refactoring = "<leader>r Refactoring menu"
+let g:WhichKeyDesc_refactoring_rename = "<leader>rn Rename element"
+let g:WhichKeyDesc_refactoring_method = "<leader>rm Extract method"
+let g:WhichKeyDesc_refactoring_variable = "<leader>rv Introduce variable"
+let g:WhichKeyDesc_refactoring_field = "<leader>rf Introduce field"
+let g:WhichKeyDesc_refactoring_signature = "<leader>rs Change signature"
+let g:WhichKeyDesc_refactoring_all = "<leader>rr Open refactorings list"
+map <leader>rn <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+" Go to code
+let g:WhichKeyDesc_goto = "<leader>g Go to X"
+let g:WhichKeyDesc_goto_declaration = "<leader>gd Go to Definition"
+let g:WhichKeyDesc_goto_type_declaration = "<leader>gy Go to Type Definition"
+let g:WhichKeyDesc_goto_implementation = "<leader>gi Go to Implementation"
+let g:WhichKeyDesc_goto_usages = "<leader>gu Go to Usages"
+let g:WhichKeyDesc_goto_test = "<leader>gt Go to Test"
+let g:WhichKeyDesc_goto_back = "<leader>gb Go Back"
+let g:WhichKeyDesc_goto_forward = "<leader>gf Go Forward"
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gu <Action>(ShowUsages)
+nmap <leader>gt <Action>(GotoTest)
+nmap <leader>gf <Action>(Back)
+nmap <leader>gb <Action>(Forward)
+
+" Git windows
+let g:WhichKeyDesc_git = "<leader>g Git operations"
+let g:WhichKeyDesc_git_commit = "<leader>gc Open Git commit dialog"
+let g:WhichKeyDesc_git_status = "<leader>gs Open Git status dialog"
+let g:WhichKeyDesc_git_branches = "<leader>gb Open Git branches list"
+map <leader>gc <Action>(CheckinProject)
+map <leader>gs <Action>(ActivateVersionControlToolWindow)
+map <leader>gb <Action>(Git.Branches)
+
+" Errors
+let g:WhichKeyDesc_errors = "<leader>e Error navigation"
+let g:WhichKeyDesc_errors_next = "<leader>en Go to next error in solution"
+let g:WhichKeyDesc_errors_prev = "<leader>ep Go to previous error in solution"
+map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
+map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
+
+" Letters
+let g:WhichKeyDesc_letter = "<leader>l Letters"
+let g:WhichKeyDesc_letter_aeSmall = "<leader>lq ae small"
+map <leader>lq liæ<Esc>
+let g:WhichKeyDesc_letter_aeBig = "<leader>lw ae big"
+map <leader>lw iÆ<ESC>
+let g:WhichKeyDesc_letter_oeSmall = "<leader>le oe small"
+map <leader>le iø<ESC>
+let g:WhichKeyDesc_letter_oeBig = "<leader>lr oe big"
+map <leader>lr iØ<ESC>
+let g:WhichKeyDesc_letter_aaSmall = "<leader>lt aa small"
+map <leader>lt iå<Esc>
+let g:WhichKeyDesc_letter_aaBig = "<leader>ly aa big"
+map <leader>ly iÅ<Esc>
+" letters - spaces
+let g:WhichKeyDesc_letter_ = "<leader>lu Space"
+map <leader>lu i<Space><Esc>
+let g:WhichKeyDesc_letter_ = "<leader>li EditorNewLine"
+map <leader>li A<Enter><Esc>
+
+
+"let g:WhichKeyDesc_letter_ = "<leader>lo "
+"map <leader>lo <C-v>u<CR>
+"let g:WhichKeyDesc_letter_ = "<leader>lp "
+"map <leader>lp <C-v>u<CR>
+
+
+" nnoremap <Leader>r :normal :action GotoFile<CR>:normal 3G<CR>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
