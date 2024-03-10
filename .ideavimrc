@@ -110,20 +110,23 @@ map <leader>be <action>(RecentFiles)
 
 " commands - navigation
 let g:WhichKeyDesc_commands_nextsplitter = "<leader>bc NextSplitter"
-let g:WhichKeyDesc_commands_ScrollDown = "<leader>br ScrollDown"
-let g:WhichKeyDesc_commands_ScrollUp = "<leader>bt ScrollUp"
-let g:WhichKeyDesc_Acommands_MethodDown = "<leader>nr MethodDown"
-let g:WhichKeyDesc_Acommands_MethodUp = "<leader>nt MethodUp"
+let g:WhichKeyDesc_commands_ScrollDown = "<leader>nr MethodDown"
+let g:WhichKeyDesc_commands_ScrollUp = "<leader>nt MethodUp"
+let g:WhichKeyDesc_Acommands_MethodDown = "<leader>br ScrollDown"
+let g:WhichKeyDesc_Acommands_MethodUp = "<leader>bt ScrollUp"
+let g:WhichKeyDesc_Acommands_ShowFunctions = "<leader>be ShowMembers"
 map <leader>bc :action NextSplitter<CR>
-map <leader>br <action>(ScrollPane-scrollDown)
-map <leader>bt <action>(ScrollPane-scrollUp)
-map <leader>nr <action>(MethodDown)
-map <leader>nt <action>(MethodUp)
+map <leader>nr <action>(ScrollPane-scrollDown)
+map <leader>nt <action>(ScrollPane-scrollUp)
+map <leader>br <action>(MethodDown)
+map <leader>bt <action>(MethodUp)
+map <leader>be <action>(ShowMembersInNavigationBar)
 map c :action NextSplitter<CR>
-map r <action>(ScrollPane-scrollDown)
-map t <action>(ScrollPane-scrollUp)
-map <A-r> <action>(MethodDown)
-map <A-t> <action>(MethodUp)
+map <A-r> <action>(ScrollPane-scrollDown)
+map <A-t> <action>(ScrollPane-scrollUp)
+map r <action>(MethodDown)
+map t <action>(MethodUp)
+map <A-e> <action>(ShowMembersInNavigationBar)
 
 " commands stretch
 map <A-h> <action>(StretchSplitToLeft)
