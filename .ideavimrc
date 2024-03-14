@@ -66,6 +66,7 @@ nnoremap <A-l> <C-w>l
 nnoremap <A-k> <C-w>k
 nnoremap <A-j> <C-w>j
 
+
 " Jump between methods
 inoremap <A-]> <Action>(MethodUp)
 inoremap <A-[> <Action>(MethodDown)
@@ -110,23 +111,37 @@ map <leader>be <action>(RecentFiles)
 
 " commands - navigation
 let g:WhichKeyDesc_commands_nextsplitter = "<leader>bc NextSplitter"
-let g:WhichKeyDesc_commands_ScrollDown = "<leader>nr MethodDown"
-let g:WhichKeyDesc_commands_ScrollUp = "<leader>nt MethodUp"
-let g:WhichKeyDesc_Acommands_MethodDown = "<leader>br ScrollDown"
-let g:WhichKeyDesc_Acommands_MethodUp = "<leader>bt ScrollUp"
-let g:WhichKeyDesc_Acommands_ShowFunctions = "<leader>be ShowMembers"
+let g:WhichKeyDesc_commands_ScrollDown = "<leader>br MethodDown"
+let g:WhichKeyDesc_commands_ScrollUp = "<leader>bt MethodUp"
+let g:WhichKeyDesc_Acommands_MethodDown = "<leader>nr ScrollDown"
+let g:WhichKeyDesc_Acommands_MethodUp = "<leader>nt ScrollUp"
+let g:WhichKeyDesc_Acommands_ShowFunctions = "<leader>ne ShowMembers"
 map <leader>bc :action NextSplitter<CR>
 map <leader>nr <action>(ScrollPane-scrollDown)
 map <leader>nt <action>(ScrollPane-scrollUp)
 map <leader>br <action>(MethodDown)
 map <leader>bt <action>(MethodUp)
-map <leader>be <action>(ShowMembersInNavigationBar)
+map <leader>ne <action>(ShowMembersInNavigationBar)
 map c :action NextSplitter<CR>
 map <A-r> <action>(ScrollPane-scrollDown)
 map <A-t> <action>(ScrollPane-scrollUp)
 map r <action>(MethodDown)
 map t <action>(MethodUp)
 map <A-e> <action>(ShowMembersInNavigationBar)
+
+" Tool window Alt commands
+let g:WhichKeyDesc_Acommands_hideAll = "<leader>nc HideAllWindows"
+let g:WhichKeyDesc_Acommands_JumpToLast = "<leader>nm JumpToLastWindow"
+let g:WhichKeyDesc_Acommands_Maximize = "<leader>nw MaximizeToolWindow"
+let g:WhichKeyDesc_Acommands_Minimize = "<leader>nq MinimizeCurrentWindow"
+<leader>nc <Action>(HideAllWindows)
+<leader>nm <Action>(JumpToLastWindow)
+<leader>nw <Action>(MaximizeToolWindow)
+<leader>nq <Action>(MinimizeCurrentWindow)
+map <A-c> <Action>(HideAllWindows)
+map <A-m> <Action>(JumpToLastWindow)
+map <A-w> <Action>(MaximizeToolWindow)
+map <A-q> <Action>(MinimizeCurrentWindow)
 
 " commands stretch
 map <A-h> <action>(StretchSplitToLeft)
@@ -261,10 +276,17 @@ nmap <leader>gt <Action>(GotoTest)
 nmap <leader>gf <Action>(Back)
 nmap <leader>gb <Action>(Forward)
 
+
 " Tool windows
 let g:WhichKeyDesc_tool = "<leader>t Tool Windows"
 let g:WhichKeyDesc_tool_closeAll = "<leader>tc Close All Tools"
-map <leader>tc <Action>(CloseAllEditors)
+let g:WhichKeyDesc_tool_ShowLast = "<leader>tm Jump to last Tool"
+let g:WhichKeyDesc_tool_Maximize = "<leader>tw Maximize Current"
+let g:WhichKeyDesc_tool_Minimize = "<leader>tq Minimize Current"
+map <leader>tc <Action>(HideAllWindows)
+map <leader>tm <Action>(JumpToLastWindow)
+map <leader>tw <Action>(MaximizeToolWindow)
+map <leader>tq <Action>(MinimizeCurrentWindow)
 
 " Git windows
 let g:WhichKeyDesc_git = "<leader>g Git operations"
