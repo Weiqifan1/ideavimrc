@@ -231,8 +231,6 @@ map <leader>fp <action>(WelcomeScreen.OpenProject)
 let g:WhichKeyDesc_close_tab = "<leader>q Close active tab"
 map <leader>q <action>(CloseContent)
 
-" Refactoring
-let g:WhichKeyDesc_refactoring = "<leader>r Refactoring menu"
 let g:WhichKeyDesc_refactoring_rename = "<leader>rn Rename element"
 let g:WhichKeyDesc_refactoring_method = "<leader>rm Extract method"
 let g:WhichKeyDesc_refactoring_variable = "<leader>rv Introduce variable"
@@ -262,6 +260,11 @@ nmap <leader>gu <Action>(ShowUsages)
 nmap <leader>gt <Action>(GotoTest)
 nmap <leader>gf <Action>(Back)
 nmap <leader>gb <Action>(Forward)
+
+" Tool windows
+let g:WhichKeyDesc_tool = "<leader>t Tool Windows"
+let g:WhichKeyDesc_tool_closeAll = "<leader>tc Close All Tools"
+map <leader>tc <Action>(CloseAllEditors)
 
 " Git windows
 let g:WhichKeyDesc_git = "<leader>g Git operations"
