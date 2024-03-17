@@ -11,6 +11,12 @@
 " Ideavim - easymotion
 " Which-key
 
+" used commands
+Commands ><saoecrt
+"C-- s
+"A-- snpuirtemwqhjlkoa][  --c usedByIDEA
+"A-missingCanBeUsed- y dfg zxvb
+
 "" Base Settings
 "" ========================================================
 imapclear
@@ -61,11 +67,10 @@ nnoremap <A-n> :tabnext<CR>
 nnoremap <A-p> :tabprev<CR>
 
 " Pane navigation   " jump between windows
-nnoremap <A-h> <C-w>h
-nnoremap <A-l> <C-w>l
-nnoremap <A-k> <C-w>k
-nnoremap <A-j> <C-w>j
-
+"nnoremap <A-h> <C-w>h
+"nnoremap <A-l> <C-w>l
+"nnoremap <A-k> <C-w>k
+"nnoremap <A-j> <C-w>j
 
 " Jump between methods
 inoremap <A-]> <Action>(MethodUp)
@@ -130,31 +135,37 @@ map t <action>(MethodUp)
 map <A-e> <action>(ShowMembersInNavigationBar)
 
 " Tool window Alt commands
-let g:WhichKeyDesc_Acommands_hideAll = "<leader>nc HideAllWindows"
 let g:WhichKeyDesc_Acommands_JumpToLast = "<leader>nm JumpToLastWindow"
 let g:WhichKeyDesc_Acommands_Maximize = "<leader>nw MaximizeToolWindow"
 let g:WhichKeyDesc_Acommands_Minimize = "<leader>nq MinimizeCurrentWindow"
-<leader>nc <Action>(HideAllWindows)
+let g:WhichKeyDesc_Acommands_closeEditor = "<leader>no JumpToLastWindow"
+let g:WhichKeyDesc_Acommands_closeWindow = "<leader>na HideAllWindows"
 <leader>nm <Action>(JumpToLastWindow)
 <leader>nw <Action>(MaximizeToolWindow)
 <leader>nq <Action>(MinimizeCurrentWindow)
-map <A-c> <Action>(HideAllWindows)
+<leader>no <Action>(JumpToLastWindow)
+<leader>na <Action>(HideActiveWindow)
 map <A-m> <Action>(JumpToLastWindow)
 map <A-w> <Action>(MaximizeToolWindow)
 map <A-q> <Action>(MinimizeCurrentWindow)
+map <A-o> <Action>(JumpToLastWindow)
+map <A-a> <Action>(HideAllWindows)
+
+let g:WhichKeyDesc_closeEditor = "<leader>do CloseEditor"
+map <leader>do <action>(CloseEditor)
 
 " commands stretch
 map <A-h> <action>(StretchSplitToLeft)
-map <A-j> <action>(StretchSplitToBottom)
-map <A-k> <action>(StretchSplitToTop)
+map <A-j> <action>(MoveElementLeft)
+map <A-k> <action>(MoveElementRight)
 map <A-l> <action>(StretchSplitToRight)
 let g:WhichKeyDesc_Acommands_stretchLeft = "<leader>nh Stretch left"
-let g:WhichKeyDesc_Acommands_stretchDown = "<leader>nj Stretch down"
-let g:WhichKeyDesc_Acommands_stretchUp = "<leader>nk Stretch up"
+let g:WhichKeyDesc_Acommands_stretchDown = "<leader>nj MoveElementLeft"
+let g:WhichKeyDesc_Acommands_stretchUp = "<leader>nk MoveElementRight"
 let g:WhichKeyDesc_Acommands_stretchRight = "<leader>nl Stretch right"
 map <leader>nh <action>(StretchSplitToLeft)
-map <leader>nj <action>(StretchSplitToBottom)
-map <leader>nk <action>(StretchSplitToTop)
+map <leader>nj <action>(MoveElementLeft)
+map <leader>nk <action>(MoveElementRight)
 map <leader>nl <action>(StretchSplitToRight)
 
 " Font size
@@ -208,6 +219,7 @@ map <leader>dd <action>(ToggleDistractionFreeMode)
 map <leader>dz <action>(ToggleZenMode)
 map <leader>df <action>(ToggleFullScreen)
 map <leader>ds <action>(EditorToggleUseSoftWraps)
+
 
 " Actions
 let g:WhichKeyDesc_action= "<leader>a Actions"
